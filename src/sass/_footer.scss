@@ -1,0 +1,64 @@
+.footer{
+    background-color: var(--secondary-bg-color);
+}
+.footer__box {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 30px;
+
+    
+    color: #545454;
+
+    & div {
+        display: flex;
+        align-items: center;
+        margin-top: 9px;
+    }
+
+    & svg {
+        width: 14px;
+        height: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    & .footer__btn {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        border: none;
+        color: #545454;
+        background-color: var(--secondary-bg-color);
+        padding: 0;
+        cursor: pointer;
+        & span {
+            text-decoration: underline;
+    
+            &:hover, &:focus{
+                color: #FF6B08;
+            }
+        }
+    }
+
+    @include tab {
+        font-size: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        & div {
+            margin-top: 0;
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.library-box {
+    min-height: 600px;
+}

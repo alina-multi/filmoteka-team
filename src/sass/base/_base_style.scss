@@ -1,0 +1,82 @@
+:root {
+    // основной цвет текста
+    --base-text-color: #000000;
+    // вторичный цвет текста
+    --secondary-text-color: #fff;
+    // основной цвет фона
+    --base-bg-color: #fff;
+    // вторичный цвет фона
+    --secondary-bg-color: #F7F7F7;
+    // темный цвет фона
+    --dark-bg-color: #E5E5E5;
+    
+    // акцент цвет
+    --acent-color: #FF6B08;
+    // неактивный элемент
+    --disabled-color: #ccc;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: #545454;
+}
+    
+::-webkit-scrollbar-thumb {
+    background-color: var(--acent-color);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    // max-width: 1280px;
+    background-color: var(--base-bg-color);
+    color: var(--base-text-color);
+    margin: 0 auto;
+}
+
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+
+    @include mob {
+        width: 320px;
+    }
+    @include tab {
+        width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    @include desk {
+        width: 1280px;
+    }
+}
+
+.section{
+    margin-bottom: 60px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+}

@@ -10,33 +10,32 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>FilmoTeka</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-
-    <!-- <script type="module" src="./index.js"></script> -->
+    <title>My Library</title>
+    <link rel="stylesheet" href="./sass/library.scss" />
   </head>
+
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <include src="./partials/header.html"></include>
-    <include src="./partials/film_container_main.html"></include>
-    <include src="./partials/pagination.html"></include>
+    <include src="./partials/header-libr.html"></include>
+    <div class="library-box">
+      <include src="./partials/film-container-library.html"></include>
+      <include src="./partials/pagination.html"></include>
+    </div>
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal_dev.html"></include>
     <include src="./partials/authorisation.html"></include>
+    <include src="./partials/loader.html"></include>
+    <!-- ================================ Modal must be the last   ================================ -->
     <include src="./partials/modal-film.html"></include>
 
-    <!-- ================================ Modal must be the last   ================================ -->
-    <include src="./partials/loader.html"></include>
-
     <!-- ================================ JS script list START ================================ -->
-    <script src="./js/js-modal-devops.js" type="module"></script>
-    <script src="./js/firebase.js" type="module"></script>
-    <script src="./js/fetch-films-main.js" type="module"></script>
-    <script src="./js/search-by-keyword.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
+    <script src="./js/js-modal-devops.js" type="module"></script>
+    <script type="module" src="./js/queue-list.js"></script>
+    <script type="module" src="./js/watched-list.js"></script>
+    <script script src="./js/firebase.js" type="module"></script>
     <!-- ================================ Modal must be the last   ================================ -->
-    <script src="./js/modal-film.js" type="module"></script>
+    <script src="./js/modal-film-forLib.js" type="module"></script>
     <!-- ================================ JS script list END ================================ -->
   </body>
 </html>
