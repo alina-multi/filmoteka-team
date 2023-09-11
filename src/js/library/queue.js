@@ -4,6 +4,7 @@ import { renderMovieList } from "../common/renderMovieList.js";
 import { getMovieStorage } from "../library/getMovieStorage.js";
 import refLocalStore from "../localstorage/refLocalStore.js";
 const pagination = document.querySelector(".pagination");
+import { handleEmptyPage } from "./handleEmptyPage.js";
 
 const { MOVIE_LIST_KEY, QUEUE_LIST_KEY } = refLocalStore;
 
@@ -11,12 +12,16 @@ const paginationQueue = new Pagination();
 let totalMoviePage = 0;
 
 export function createQueueList(page = false) {
-   
+
+
   const movieList = JSON.parse(localStorage.getItem(MOVIE_LIST_KEY));
   const listForRender = getMovieStorage(QUEUE_LIST_KEY, movieList);
   const countElpage = 9;
 
-  if (!listForRender) return;
+ 
+
+  handleEmptyPage(listForRender);
+
   preloaderShowLonger();
   const queryPage = page ? page : 1;
   const partMovie = [];
@@ -33,6 +38,7 @@ export function createQueueList(page = false) {
   totalMoviePage = partMovie.length - 1;
 
   paginationQueue.setCallback = createQueueList;
+
   renderMovieList(partMovie[queryPage]);
   
   if(listForRender.length <countElpage) {

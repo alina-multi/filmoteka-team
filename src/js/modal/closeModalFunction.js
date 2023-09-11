@@ -13,7 +13,6 @@ export function outOfModal(e) {
 }
 
 export function escExit({ code }) {
-  console.log("hello");
   if (code === "Escape") {
     closeModal();
   }

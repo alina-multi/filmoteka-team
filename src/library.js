@@ -1,13 +1,11 @@
 import { createQueueList } from "./js/library/queue.js";
 import { createWatchedList } from "./js/library/watched.js";
-
-// import "./js/queue-list.js";
 import "./js/modal/modal-film.js";
 import "./js/common/js-modal-devops.js";
 import "./js/firebase.js";
 import refs from "./js/refs.js";
 
-// WATCHED
+
 
 createWatchedList();
 

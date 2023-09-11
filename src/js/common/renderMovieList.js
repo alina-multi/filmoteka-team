@@ -1,13 +1,16 @@
-import refs from "../refs";
+import refs from '../refs';
+import { handleEmptyPage } from '../library/handleEmptyPage.js';
 
-const IMG_URL = "https://image.tmdb.org/t/p/w500";
+const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 export function renderMovieList(films) {
-  refs.containerBox.innerHTML = "";
+  refs.containerBox.innerHTML = '';
+  handleEmptyPage(films);
+
   const markup = films
-    .map((film) => {
+    .map(film => {
       let date = film.release_date ?? film.first_air_date ?? null;
-      date = date !== null ? date.slice(0, 4) : "";
+      date = date !== null ? date.slice(0, 4) : '';
       return `
               <li class="main-container--card"
           data-modal-open>
@@ -23,24 +26,23 @@ export function renderMovieList(films) {
            </div>
       </li>`;
     })
-    .join("");
+    .join('');
   refs.containerBox.innerHTML = markup;
 }
 
 function imageSrc(image) {
-  if (image.original_title == "Kærlighed for voksne") {
+  if (image.original_title == 'Kærlighed for voksne') {
     return `src="https://m.media-amazon.com/images/M/MV5BOWQ1ODQ0ZTQtOGJjYi00ODZmLWFkOTAtOWMzN2E4YzE0YmVjXkEyXkFqcGdeQXVyMjAwNzczNTU@._V1_.jpg"`;
   }
-  console.log();
   return `src=${
     image.poster_path
       ? `${IMG_URL}${image.poster_path}`
-      : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+      : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
   }`;
 }
 
 function transformId([...arr]) {
-  const g = localStorage.getItem("GENRES");
+  const g = localStorage.getItem('GENRES');
   const genres = JSON.parse(g);
   let genreName;
   const array = [...arr];

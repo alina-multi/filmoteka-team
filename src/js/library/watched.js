@@ -3,6 +3,7 @@ import { preloaderShowLonger } from "../common/loader.js";
 import { renderMovieList } from "../common/renderMovieList.js";
 import { getMovieStorage } from "../library/getMovieStorage.js";
 import refLocalStore from "../localstorage/refLocalStore.js";
+import refs from "../refs.js";
 
 const { MOVIE_LIST_KEY, WATCHED_LIST_KEY } = refLocalStore;
 const paginationWatched = new Pagination();
@@ -13,8 +14,14 @@ export function createWatchedList(page = false) {
   const listForRender = getMovieStorage(WATCHED_LIST_KEY, movieList);
   const countElpage = 9;
 
-  if (!listForRender) return;
   preloaderShowLonger();
+
+  if (!listForRender) {
+    refs.emptyPage.classList.add("visible");
+    refs.paginationPage.style.display = "none";
+    return;
+  }
+
   const queryPage = page ? page : 1;
   const partMovie = [];
 
@@ -28,7 +35,7 @@ export function createWatchedList(page = false) {
   }
 
   totalMoviePages = partMovie.length - 1;
-
+  refs.containerBox.innerHTML = "";
   renderMovieList(partMovie[queryPage]);
 
   if (totalMoviePages > 1) {
