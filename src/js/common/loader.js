@@ -13,30 +13,26 @@
 
 // hidePreloader();
 
-
-const preloader = document.getElementById('preloader');
-const loadder = document.querySelector('.loader')
+const preloader = document.getElementById("preloader");
+const loadder = document.querySelector(".loader");
 
 function preloaderShow() {
-    preloader.classList.add('is-open');
-    loadder.classList.add('is-open');
-    };
+  preloader.classList.add("is-open");
+  loadder.classList.add("is-open");
+}
 
+function hidePreloader() {
+  preloader.classList.remove("is-open");
+  loadder.classList.remove("is-open");
+}
 
+function preloaderShowLonger() {
+  preloader.classList.add("is-open");
+  loadder.classList.add("is-open");
+  setTimeout(function () {
+    preloader.classList.remove("is-open");
+    loadder.classList.remove("is-open");
+  }, 700);
+}
 
-  function hidePreloader() {
-    preloader.classList.remove('is-open');
-    loadder.classList.remove('is-open');
-  };
-
-
-  function preloaderShowLonger() {
-    preloader.classList.add('is-open');
-    loadder.classList.add('is-open');
-    setTimeout(function () {
-      preloader.classList.remove('is-open');
-      loadder.classList.remove('is-open');
-    }, 700);
-};
-
-  export { preloaderShow, preloaderShowLonger, hidePreloader };
+export { preloaderShow, preloaderShowLonger, hidePreloader };

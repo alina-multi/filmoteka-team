@@ -12,13 +12,14 @@
     />
     <title>FilmoTeka</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
-    <!-- <script type="module" src="./index.js"></script> -->
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/header.html"></include>
-    <include src="./partials/film_container_main.html"></include>
+    <include src="./partials/main-container.html"></include>
     <include src="./partials/pagination.html"></include>
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal_dev.html"></include>
@@ -27,16 +28,5 @@
 
     <!-- ================================ Modal must be the last   ================================ -->
     <include src="./partials/loader.html"></include>
-
-    <!-- ================================ JS script list START ================================ -->
-    <script src="./js/js-modal-devops.js" type="module"></script>
-    <script src="./js/firebase.js" type="module"></script>
-    <script src="./js/fetch-films-main.js" type="module"></script>
-    <script src="./js/search-by-keyword.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-    <!-- ================================ Modal must be the last   ================================ -->
-    <script src="./js/modal-film.js" type="module"></script>
-    <!-- ================================ JS script list END ================================ -->
   </body>
 </html>
